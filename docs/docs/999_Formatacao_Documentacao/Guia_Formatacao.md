@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-slug: /valuation/formatacao/guia
+slug: /formatacao/guia
 description: "Guia de formatação para padronização da documentação"
 ---
 
