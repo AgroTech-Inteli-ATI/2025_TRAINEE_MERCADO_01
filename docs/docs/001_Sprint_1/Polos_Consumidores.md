@@ -15,7 +15,7 @@ Esta análise compõe o **diagnóstico territorial da Sprint 1**, subsidiando a 
 A identificação dos polos agrícolas foi realizada em três etapas principais:
 
 1. **Coleta de dados públicos**  
-   Os dados de área plantada e produção foram obtidos a partir da base **SIDRA/IBGE (PAM 2024)**, considerando as culturas de maior consumo de fertilizantes (IBGE, 2025):  
+   Os dados de área plantada e produção foram obtidos a partir da base **SIDRA - IBGE (PAM 2024)**, considerando as culturas de maior consumo de fertilizantes (IBGE, 2025):  
    - Soja  
    - Milho  
    - Cana-de-açúcar  
@@ -27,11 +27,11 @@ A identificação dos polos agrícolas foi realizada em três etapas principais:
    Para cada município, foi calculado um índice composto que pondera a importância relativa de cada cultura.  
    A fórmula final utilizada foi:
 
-   \[
-   DPF_i = 0{,}45 \cdot S_{soja} + 0{,}25 \cdot S_{milho} + 0{,}20 \cdot S_{cana} + 0{,}10 \cdot S_{café}
-   \]
+   ```text
+   DPF_i = 0.45 * S_soja + 0.25 * S_milho + 0.20 * S_cana + 0.10 * S_cafe
+   ```
 
-   Onde \( S_c \) representa a área plantada normalizada (0–1) da cultura *c*.
+   Onde `S_c` representa a área plantada normalizada (0–1) da cultura *c*.
 
    Os pesos foram definidos com base na participação estimada das culturas de soja, milho e cana-de-açúcar (MAPA, 2022b)
 
@@ -60,6 +60,15 @@ Para representar espacialmente os resultados, foi criado um script em **Python/M
 - Exporta automaticamente a imagem final como `data/heatmap_dpf.png`.
 
 O resultado visual evidencia os polos agrícolas de maior demanda de fertilizantes, concentrados principalmente no **Centro-Oeste (MT, GO)** e **MATOPIBA (BA, PI, MA, TO)**.
+
+<p style={{textAlign: 'center'}}>Figura 1 - Heatmap dos polos agrícolas com maior demanda de fertilizantes</p>
+<div style={{margin: 25}}>
+    <div style={{textAlign: 'center'}}>
+        <img src={require("../../../static/img/heatmap_dpf.png").default} style={{width: 800}} alt="Heatmap de demanda" />
+        <br />
+    </div>
+</div>
+<p style={{textAlign: 'center'}}>Fonte: Os autores (2025)</p>
 
 ---
 
