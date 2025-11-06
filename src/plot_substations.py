@@ -14,11 +14,22 @@ warnings.filterwarnings("ignore", category=UserWarning)
 # Arquivos de entrada (troque para seus caminhos/URLs locais)
 PATH_ONS = "data/ons_substations.geojson"          # pontos com lon/lat, capacidade,
 
-gdf = gpd.read_file("data/epe_substations/Subestações_-_Base_Existente.shp")
-gdf.to_file("data/epe_substations.geojson", driver="GeoJSON")
+# Bloco para converter o Shapefile da EPE para GeoJSON (só precisa rodar uma vez)
+try:
+    if not os.path.exists("data/epe_substations.geojson"):
+        if os.path.exists("data/epe_substations/Subestações_-_Base_Existente.shp"):
+            print("Convertendo Shapefile EPE para GeoJSON...")
+            gdf_epe_shp = gpd.read_file("data/epe_substations/Subestações_-_Base_Existente.shp")
+            gdf_epe_shp.to_file("data/epe_substations.geojson", driver="GeoJSON")
+            print("Conversão concluída.")
+        else:
+            print("Aviso: Shapefile da EPE não encontrado, pulando conversão.")
+except Exception as e:
+    print(f"Aviso: Falha ao converter Shapefile EPE: {e}")
+
 
 PATH_EPE = "data/epe_substations.geojson"          # idem
-PATH_REGIOES = "data/brasil_regioes.geojson"       # polígonos: N, NE, CO, SE, S (coluna 'REGIAO' ou similar)
+PATH_REGIOES = "data/regions/BR_Regioes_2024.shp"       # polígonos: N, NE, CO, SE, S (coluna 'REGIAO' ou similar)
 PATH_LINHAS_TX = "data/linhas_transmissao.geojson" # opcional; se não existir, o script ignora
 
 # Nomes de colunas esperadas nas camadas ONS/EPE
@@ -42,8 +53,8 @@ OUT_PNG = "data/mapa_subestacoes.png"
 def read_points_layer(path_or_url: str) -> gpd.GeoDataFrame:
     """
     Lê uma camada de pontos. Aceita:
-      - GeoPackage/GeoJSON/Parquet com geometria já pronta, OU
-      - CSV/Parquet com colunas lon/lat -> cria geometria.
+    - GeoPackage/GeoJSON/Parquet com geometria já pronta, OU
+    - CSV/Parquet com colunas lon/lat -> cria geometria.
     Normaliza colunas esperadas.
     """
     if not os.path.exists(path_or_url) and not str(path_or_url).startswith(("http://", "https://")):
@@ -119,10 +130,15 @@ def availability_percentage(cap_op: pd.Series, cap_inst: pd.Series) -> pd.Series
     """Disponibilidade percentual = cap_operacional / cap_instalada * 100 (sempre Series)."""
     op = pd.Series(pd.to_numeric(cap_op, errors="coerce"), index=cap_op.index)
     inst = pd.Series(pd.to_numeric(cap_inst, errors="coerce"), index=cap_inst.index)
-    with pd.option_context("mode.use_inf_as_na", True):
-        pct = (op / inst) * 100
-    return pct  # manter como Series; NaN quando faltar dado
 
+    # Executa a divisão
+    pct = (op / inst) * 100
+
+    # Substitui manualmente valores infinitos (positivos ou negativos) por NaN
+    # Isso acontece se inst=0 e op!=0
+    pct = pct.replace([float('inf'), float('-inf')], float('nan'))
+
+    return pct  # manter como Series; NaN quando faltar dado
 
 
 def availability_bucket(pct: pd.Series) -> pd.Series:
@@ -215,8 +231,17 @@ def try_read_lines(path: str) -> gpd.GeoDataFrame | None:
 # =========================
 def main():
     # 1) EXTRAÇÃO E LIMPEZA
-    gdf_ons = read_points_layer(PATH_ONS)
-    gdf_epe = read_points_layer(PATH_EPE)
+    try:
+        gdf_ons = read_points_layer(PATH_ONS)
+        gdf_epe = read_points_layer(PATH_EPE)
+    except FileNotFoundError as e:
+        print(f"Erro fatal: Arquivo de dados de entrada não encontrado.")
+        print(f"Detalhe: {e}")
+        print("\nVerifique se os caminhos PATH_ONS e PATH_EPE estão corretos no script.")
+        return # Para a execução
+    except Exception as e:
+        print(f"Erro inesperado ao ler os dados: {e}")
+        return
 
     # Identificador da fonte
     gdf_ons["fonte"] = "ONS"
@@ -241,7 +266,14 @@ def main():
     # Já garantimos CRS_GEO acima; se viesse em outro CRS, foi convertido
 
     # 3) REGIÕES + OVERLAY
-    gdf_regioes = safe_read_regions(PATH_REGIOES)
+    try:
+        gdf_regioes = safe_read_regions(PATH_REGIOES)
+    except FileNotFoundError as e:
+        print(f"Erro fatal: Arquivo de regiões não encontrado.")
+        print(f"Detalhe: {e}")
+        print(f"\nVerifique se o caminho PATH_REGIOES está correto: {PATH_REGIOES}")
+        return
+
     gdf_pts = overlay_region(gdf_raw, gdf_regioes)
 
     # 4) AGRUPAMENTO E MÉTRICAS REGIONAIS
@@ -278,15 +310,29 @@ def main():
 
     # Plota subestações com tamanho proporcional à capacidade normalizada
     # e cor por classe de tensão
-    gdf_pts.plot(
-        ax=ax,
-        column="classe_kv",
-        markersize=10 + 90 * gdf_pts["cap_norm_0_1"].fillna(0.1),  # 10 a 100 px
-        linewidth=0.2,
-        edgecolor="#333333",
-        legend=True,
-        categorical=True,
-    )
+
+    # Prepara os argumentos base da plotagem
+    plot_kwargs = {
+        "ax": ax,
+        "markersize": 10 + 90 * gdf_pts["cap_norm_0_1"].fillna(0.1),  # 10 a 100 px
+        "linewidth": 0.2,
+        "edgecolor": "#333333",
+    }
+
+    # SÓ adiciona a categorização se houver dados válidos em 'classe_kv'
+    if gdf_pts["classe_kv"].notna().any():
+        plot_kwargs["column"] = "classe_kv"
+        plot_kwargs["legend"] = True
+        plot_kwargs["categorical"] = True
+    else:
+        # Se não houver dados, avisa o usuário e plota sem cores
+        print(
+            f"Aviso: Nenhum dado válido encontrado na coluna '{COL_KV}'. "
+            "O mapa não será categorizado por tensão."
+        )
+
+    # Executa a plotagem com os argumentos condicionais
+    gdf_pts.plot(**plot_kwargs)
 
     # Rótulos simples (opcional)
     # for _, r in gdf_pts.sample(min(60, len(gdf_pts))).iterrows():
@@ -303,7 +349,7 @@ def main():
 
     # Legenda adicional para disponibilidade (Alta/Média/Baixa): criamos um inset textual
     share = gdf_pts["disp_cat"].value_counts(dropna=False)
-    legend_text = "Disponibilidade média (por ponto):\n" + "\n".join([f"• {k}: {int(v)}" for k, v in share.items()])
+    legend_text = "Disponibilidade (por ponto):\n" + "\n".join([f"• {k}: {int(v)}" for k, v in share.items()])
     ax.text(0.01, 0.01, legend_text, transform=ax.transAxes, fontsize=9, va="bottom", ha="left",
             bbox=dict(facecolor="white", edgecolor="#cccccc", boxstyle="round,pad=0.4"))
 
