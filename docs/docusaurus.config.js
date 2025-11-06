@@ -58,7 +58,7 @@ const config = {
             label: 'Documentação',
           },
           {
-            href: 'https://github.com/agrotechinteli/2025_TRAINEE_MERCADO_01', // Atualize para o URL correto do seu repositório
+            href: 'https://github.com/AgroTech-Inteli-ATI/2025_TRAINEE_MERCADO_01', // Atualize para o URL correto do seu repositório
             label: 'GitHub',
             position: 'right',
           },
