@@ -90,12 +90,6 @@ O resultado visual evidencia os polos agrícolas de maior demanda de fertilizant
 </div>
 <p style={{textAlign: 'center'}}>Fonte: Os autores (2025)</p>
 
-<div style="text-align:center">
-  <p style="margin-bottom:8px;"><strong>Figura 2 - Heatmap dos polos agrícolas com maior demanda de fertilizantes</strong></p>
-  <img src="../../static/img/heatmap_dpf.png" style="display:block; margin:0 auto; width:700px; max-width:100%; height:auto;" />
-  <p style="text-align:center; margin-top:8px; font-size:0.9em;">Fonte: Os autores (2025)</p>
-</div>
-
 ---
 
 ## Principais Resultados
