@@ -1,12 +1,10 @@
 ---
 sidebar_position: 3
-slug: /Sprint-1/Mapa_Jazidas
+slug: /Sprint-1/mapeamento-jazidas
 description: "Mapeamento das jazidas próprias da Agrominas e potenciais áreas de transporte"
----
+--- 
 
 # Mapeamento das Jazidas Próprias
-
-
 ## Objetivo
 Registrar, de forma inicial, as **potenciais áreas de transporte** associadas às origens mapeadas (Pratápolis, Fortaleza de Minas, Tiros e Santa Helena), destacando a **relação espacial com o núcleo operacional** e o **raio de 250 km** para orientação dos corredores rodoviários.
 
@@ -14,7 +12,7 @@ Registrar, de forma inicial, as **potenciais áreas de transporte** associadas �
 
 <div style={{margin: 25}}>
     <div style={{textAlign: 'center'}}>
-        <img src={require("../../../static/img/mapa_jazida.jpeg").default} style={{width: 800}} alt="Mapa das jazidas" />
+        <img src={require("../../static/img/mapa_jazida.jpeg").default} style={{width: 800}} alt="Mapa das jazidas" />
         <br />
     </div>
 </div>
@@ -27,9 +25,3 @@ Registrar, de forma inicial, as **potenciais áreas de transporte** associadas �
 - **Tiros (SiO₂ ~250 km via MG-176/BR-354)** fica no **limite do raio**; uso tático para volumes menores/ajustes de blend.
 - **Santa Helena (K, eixo Araxá)** aparece como **opção complementar** no quadrante norte, reforçando convergência logística para o sul/centro-oeste de MG.
 - Próximo passo: desenhar **corredores gate→via primária** e marcar **pontos críticos** (pontes, rampas, curvas) para cada origem.
-
-
-
-
-
-

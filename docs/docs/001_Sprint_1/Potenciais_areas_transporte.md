@@ -1,6 +1,6 @@
 ---
-sidebar_position: 5
-slug: /Sprint-1/Logistica_Raio_Suprimento
+sidebar_position: 4
+slug: /Sprint-1/raio-suprimento
 description: "Potenciais áreas de transporte – raio e corredores (Pratápolis)"
 ---
 
@@ -25,7 +25,7 @@ Documentar, de forma inicial, as **potenciais áreas de transporte** ligadas às
 * O **raio de suprimento máximo de 250 km** é viável e competitivo.
 * O produto final pode ser distribuído via **BR-265** e **MG-344** para o **Sul de Minas**, **Triângulo Mineiro** e **interior de SP**.
 
-## Interpretação 
+## Interpretação
 - **Pratápolis (0–10 km, interno):** corredores curtos e de baixa incerteza logística.
 - **Fortaleza de Minas (~110 km, BR-265):** rota direta; monitorar volume moderado e condições da via.
 - **Tiros (~250 km, MG-176/BR-354):** no limite do raio; uso tático para volumes menores/ajustes.
