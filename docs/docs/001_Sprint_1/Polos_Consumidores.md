@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 slug: /Sprint-1/Polos_Consumidores
 description: "Identificação dos principais polos agrícolas consumidores"
 ---
@@ -50,6 +50,22 @@ A identificação dos polos agrícolas foi realizada em três etapas principais:
 
 ---
 
+### Análise Exploratória das Culturas
+
+Antes da geração do mapa, foi realizada uma **análise exploratória dos dados de produção agrícola** para verificar a representatividade das principais culturas consideradas no índice DPF.  
+O **gráfico de barras** abaixo apresenta a **média de área plantada por cultura** nos municípios brasileiros analisados:
+
+<div style="text-align:center">
+  <p style="margin-bottom:8px;"><strong>Figura 1 - Média de área plantada por cultura (ha)</strong></p>
+  <img src="../../static/img/media_culturas.png" style="display:block; margin:0 auto; width:700px; max-width:100%; height:auto;" />
+  <p style="text-align:center; margin-top:8px; font-size:0.9em;">Fonte: Os autores (2025)</p>
+</div>
+
+Essa visualização evidencia que as culturas de **soja e milho** concentram a maior parte da área cultivada nacionalmente, seguidas por **cana-de-açúcar** e **café**.  
+Tal comportamento **reforça a coerência dos pesos atribuídos** na fórmula do DPF - 0,45 para soja e 0,25 para milho, uma vez que essas culturas são as **principais consumidoras de fertilizantes** no país.
+
+--- 
+
 ## Geração do Heatmap
 
 Para representar espacialmente os resultados, foi criado um script em **Python/Matplotlib** (`src/plot_heatmap.py`) que:
@@ -69,6 +85,12 @@ O resultado visual evidencia os polos agrícolas de maior demanda de fertilizant
     </div>
 </div>
 <p style={{textAlign: 'center'}}>Fonte: Os autores (2025)</p>
+
+<div style="text-align:center">
+  <p style="margin-bottom:8px;"><strong>Figura 2 - Heatmap dos polos agrícolas com maior demanda de fertilizantes</strong></p>
+  <img src="../../static/img/heatmap_dpf.png" style="display:block; margin:0 auto; width:700px; max-width:100%; height:auto;" />
+  <p style="text-align:center; margin-top:8px; font-size:0.9em;">Fonte: Os autores (2025)</p>
+</div>
 
 ---
 

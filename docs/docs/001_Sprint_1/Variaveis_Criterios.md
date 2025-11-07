@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 slug: /Sprint-1/Variaveis_Criterios
 description: "Documento de requisitos iniciais (dados, variáveis e critérios de decisão)"
 ---
