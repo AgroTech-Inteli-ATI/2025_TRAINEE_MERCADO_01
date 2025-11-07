@@ -1,47 +1,32 @@
-#!/usr/bin/env python3
-# src/plot_substations.py
-
 import warnings
 from pathlib import Path
 from typing import Optional, List, Any, Dict
-
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 from shapely.geometry import Point
-
-# Ignora avisos comuns do Geopandas/Shapely
 warnings.filterwarnings("ignore", category=UserWarning)
 
-# =========================
-# CONFIG
-# =========================
-# --- Caminhos de Arquivos (Base) ---
 DATA_DIR = Path("data")
 REGIONS_DIR = DATA_DIR / "regions"
 EPE_SUBSTATIONS_DIR = DATA_DIR / "epe_substations"
 EPE_TRANSMISSAO_DIR = DATA_DIR / "epe_transmissao"
 OUT_DIR = DATA_DIR
 
-# --- Arquivos de Entrada (GeoJSON) ---
-# Estes são os arquivos que o script tentará LER.
-# Se não existirem, o script tentará criá-los a partir dos Shapefiles abaixo.
+# Entrada
 PATH_ONS = DATA_DIR / "ons_substations.geojson"           # Pontos com lon/lat, capacidade, etc.
+PATH_EPE_SHP = EPE_SUBSTATIONS_DIR / "Subestações_-_Base_Existente.shp"
+PATH_LINHAS_TX_SHP = EPE_TRANSMISSAO_DIR / "Linhas_de_Transmissão_-_Base_Existente.shp"
 PATH_EPE = DATA_DIR / "epe_substations.geojson"           # Idem
-PATH_LINHAS_TX = DATA_DIR / "epe_transmissao.geojson"     # Opcional: linhas de transmissão
+PATH_LINHAS_TX = DATA_DIR / "epe_transmissao.geojson"     # linhas de transmissão
 PATH_REGIOES = REGIONS_DIR / "BR_Regioes_2024.shp"        # Polígonos das regiões
 
-# --- Arquivos de Origem (Shapefiles para conversão) ---
-# Caminhos para os Shapefiles originais que serão convertidos se os GeoJSON acima não existirem.
-PATH_EPE_SHP = EPE_SUBSTATIONS_DIR / "Subestações_-_Base_Existente.shp"
-PATH_LINHAS_TX_SHP = EPE_TRANSMISSAO_DIR / "Linhas_de_Transmissão_-_Base_Existente.shp" # Ajuste se o nome do SHP de linhas for diferente
-
-# --- Nomes de Colunas Esperadas ---
+# Colunas Esperadas
 COL_LON = "lon"
 COL_LAT = "lat"
 COL_CAP = "capacidade_mva"          # Capacidade instalada MVA
 COL_CAP_OP = "cap_operacional_mva"  # Opcional; se não existir, será assumida igual à instalada
-COL_KV = "tensao_kv"                # Nível de tensão em kV
+COL_KV = "Tensao"                # Nível de tensão em kV
 COL_NOME = "nome"                   # Nome da subestação (opcional)
 
 # --- Sistemas de Referência de Coordenadas (CRS) ---
@@ -52,15 +37,9 @@ CRS_AREA = "EPSG:5880"   # SIRGAS 2000 / Brazil Polyconic (métrico), adequado p
 OUT_PNG = OUT_DIR / "mapa_subestacoes.png"
 OUT_CSV_METRICS = OUT_DIR / "metricas_regionais.csv"
 
-# =========================
-# Funções de Configuração de Dados
-# =========================
-
+# converter shapefile em geojson
 def convert_shp_to_geojson_if_needed(shp_path: Path, geojson_path: Path) -> None:
-    """
-    Verifica se um arquivo GeoJSON existe. Se não, tenta converter
-    o Shapefile correspondente.
-    """
+
     try:
         if not geojson_path.exists():
             if shp_path.exists():
@@ -74,17 +53,9 @@ def convert_shp_to_geojson_if_needed(shp_path: Path, geojson_path: Path) -> None
         # Captura ampla para qualquer falha na leitura/escrita do geopandas/fiona
         print(f"Aviso: Falha ao converter {shp_path}: {e}")
 
-# =========================
-# Funções Utilitárias de Processamento
-# =========================
+
 
 def read_points_layer(path_or_url: str | Path) -> gpd.GeoDataFrame:
-    """
-    Lê uma camada de pontos de diversas fontes.
-    - Aceita GeoPackage/GeoJSON/Parquet com geometria.
-    - Aceita CSV/Parquet com colunas lon/lat e cria a geometria.
-    - Normaliza colunas esperadas e garante o CRS geográfico (SIRGAS 2000).
-    """
     path_str = str(path_or_url)
 
     if not path_str.startswith(("http://", "https://")):
@@ -280,29 +251,18 @@ def try_read_lines(path: str | Path) -> Optional[gpd.GeoDataFrame]:
         return None
     return None
 
-
-# =========================
-# Pipeline Principal
-# =========================
-
 def main():
-    """
-    Executa o pipeline completo de processamento e visualização dos dados.
-    """
 
-    # 0) SETUP: Converte Shapefiles para GeoJSON se necessário
-    print("--- Verificando e convertendo Shapefiles (se necessário) ---")
+    print(" 0) SETUP: Converte Shapefiles para GeoJSON se necessário ")
     convert_shp_to_geojson_if_needed(PATH_EPE_SHP, PATH_EPE)
     convert_shp_to_geojson_if_needed(PATH_LINHAS_TX_SHP, PATH_LINHAS_TX)
-    print("--- Verificação concluída ---")
 
-    # 1) EXTRAÇÃO E LIMPEZA
-    print("Carregando dados das subestações...")
+    print(" 1) EXTRAÇÃO E LIMPEZA ")
     try:
         gdf_ons = read_points_layer(PATH_ONS)
         gdf_epe = read_points_layer(PATH_EPE)
     except FileNotFoundError as e:
-        print(f"Erro fatal: Arquivo de dados de entrada não encontrado.")
+        print(f"Arquivo de dados de entrada não encontrado.")
         print(f"Detalhe: {e}")
         print("\nVerifique se os caminhos PATH_ONS e PATH_EPE estão corretos.")
         return
@@ -310,7 +270,7 @@ def main():
         print(f"Erro inesperado ao ler os dados: {e}")
         return
 
-    # 2) TRANSFORMAÇÃO E UNIÃO
+    print(" 2) TRANSFORMAÇÃO E UNIÃO ")
     gdf_ons["fonte"] = "ONS"
     gdf_epe["fonte"] = "EPE"
 
@@ -318,7 +278,7 @@ def main():
     gdf_raw = gpd.GeoDataFrame(gdf_raw, geometry="geometry", crs=CRS_GEO)
 
     # Remove duplicatas (opcional, baseado em geometria e nome)
-    # gdf_raw = gdf_raw.drop_duplicates(subset=[COL_NOME, "geometry"])
+    gdf_raw = gdf_raw.drop_duplicates(subset=[COL_NOME, "geometry"])
 
     print(f"Total de {len(gdf_raw)} registros de subestação carregados.")
 
@@ -329,8 +289,7 @@ def main():
     gdf_raw["disp_cat"] = availability_bucket(gdf_raw["disponibilidade_pct"])
     gdf_raw["classe_kv"] = classify_voltage(gdf_raw[COL_KV])
 
-    # 3) REGIÕES + OVERLAY
-    print("Carregando e aplicando camada de regiões...")
+    print(" 3) REGIÕES + OVERLAY ")
     try:
         gdf_regioes = safe_read_regions(PATH_REGIOES)
     except FileNotFoundError as e:
@@ -344,13 +303,10 @@ def main():
 
     gdf_pts = overlay_region(gdf_raw, gdf_regioes)
 
-    # 4) AGRUPAMENTO E MÉTRICAS REGIONAIS
-    print("Calculando métricas regionais...")
+    print(" 4) AGRUPAMENTO E MÉTRICAS REGIONAIS")
     met_reg = compute_region_metrics(gdf_pts, gdf_regioes)
 
-    # ================
-    # GERAÇÃO DO MAPA
-    # ================
+
     print("Gerando o mapa...")
     fig, ax = plt.subplots(figsize=(12, 10))
     ax.set_aspect('equal')
@@ -361,7 +317,7 @@ def main():
     # Camada opcional: linhas de transmissão
     gdf_lines = try_read_lines(PATH_LINHAS_TX)
     if gdf_lines is not None:
-        gdf_lines.plot(ax=ax, color="#cccccc", linewidth=0.5, alpha=0.7, zorder=1)
+        gdf_lines.plot(ax=ax, color="#9e595968", linewidth=0.5, alpha=0.7, zorder=1)
 
     # Define a ordem da legenda de tensão
     class_order = ["< 69 kV", "69–138 kV", "138–230 kV", "230–440 kV", ">= 440 kV"]
@@ -400,12 +356,7 @@ def main():
     gdf_pts.plot(**plot_kwargs)
 
     # Título e subtítulo
-    ax.set_title("Subestações Elétricas no Brasil: Capacidade e Nível de Tensão", fontsize=14, fontweight="bold", pad=12)
-    ax.text(
-        0.01, 0.97,
-        "Tamanho do círculo é proporcional à capacidade instalada (MVA).",
-        transform=ax.transAxes, fontsize=10, va="top"
-    )
+    ax.set_title("Subestações Elétricas no Brasil: Quantidade e Nível de Tensão", fontsize=14, fontweight="bold", pad=12)
 
     # Legenda customizada para disponibilidade (contagem)
     share = gdf_pts["disp_cat"].value_counts(dropna=False).sort_index()
@@ -423,9 +374,7 @@ def main():
 
     print(f"Mapa salvo em: {OUT_PNG}")
 
-    # =========================
-    # Exporta métricas regionais
-    # =========================
+
     OUT_CSV_METRICS.parent.mkdir(parents=True, exist_ok=True)
     met_reg.sort_values("REGIAO_NOME").to_csv(OUT_CSV_METRICS, index=False, float_format="%.4f")
     print(f"Métricas regionais salvas em: {OUT_CSV_METRICS}")
