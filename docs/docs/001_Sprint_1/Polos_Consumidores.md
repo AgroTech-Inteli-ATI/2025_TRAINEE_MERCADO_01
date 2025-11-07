@@ -1,6 +1,6 @@
 ---
-sidebar_position: 4
-slug: /Sprint-1/Polos_Consumidores
+sidebar_position: 2
+slug: /Sprint-1/polos-consumidores
 description: "Identificação dos principais polos agrícolas consumidores"
 ---
 
@@ -14,17 +14,17 @@ Esta análise compõe o **diagnóstico territorial da Sprint 1**, subsidiando a 
 
 A identificação dos polos agrícolas foi realizada em três etapas principais:
 
-1. **Coleta de dados públicos**  
-   Os dados de área plantada e produção foram obtidos a partir da base **SIDRA - IBGE (PAM 2024)**, considerando as culturas de maior consumo de fertilizantes (IBGE, 2025):  
-   - Soja  
-   - Milho  
-   - Cana-de-açúcar  
-   - Café  
+1. **Coleta de dados públicos**
+   Os dados de área plantada e produção foram obtidos a partir da base **SIDRA - IBGE (PAM 2024)**, considerando as culturas de maior consumo de fertilizantes (IBGE, 2025):
+   - Soja
+   - Milho
+   - Cana-de-açúcar
+   - Café
 
    Essas quatro culturas representam mais de **73% da demanda nacional de fertilizantes** (MAPA, 2022a).
 
-2. **Cálculo do Índice de Demanda Potencial de Fertilizantes (DPF)**  
-   Para cada município, foi calculado um índice composto que pondera a importância relativa de cada cultura.  
+2. **Cálculo do Índice de Demanda Potencial de Fertilizantes (DPF)**
+   Para cada município, foi calculado um índice composto que pondera a importância relativa de cada cultura.
    A fórmula final utilizada foi:
 
    ```text
@@ -35,17 +35,17 @@ A identificação dos polos agrícolas foi realizada em três etapas principais:
 
    Os pesos foram definidos com base na participação estimada das culturas de soja, milho e cana-de-açúcar (MAPA, 2022b)
 
-3. **Implementação em Python**  
-   O índice foi calculado utilizando **Pandas** para tratamento de dados e normalização.  
+3. **Implementação em Python**
+   O índice foi calculado utilizando **Pandas** para tratamento de dados e normalização.
    O script completo encontra-se em `src/calculate_dpf.py`, e segue o fluxo:
 
-   - Leitura e limpeza do CSV (`producao-agricola.csv`)  
-   - Conversão de valores e normalização (0–1) por cultura  
-   - Cálculo ponderado do DPF  
+   - Leitura e limpeza do CSV (`producao-agricola.csv`)
+   - Conversão de valores e normalização (0–1) por cultura
+   - Cálculo ponderado do DPF
    - Classificação final dos municípios em faixas:
-     - **A** → DPF > 0,75 (Muito alto)  
-     - **B** → 0,50–0,75 (Alto)  
-     - **C** → 0,25–0,50 (Médio)  
+     - **A** → DPF > 0,75 (Muito alto)
+     - **B** → 0,50–0,75 (Alto)
+     - **C** → 0,25–0,50 (Médio)
      - **D** → < 0,25 (Baixo)
 
 ---
@@ -54,9 +54,9 @@ A identificação dos polos agrícolas foi realizada em três etapas principais:
 
 Para representar espacialmente os resultados, foi criado um script em **Python/Matplotlib** (`src/plot_heatmap.py`) que:
 
-- Integra os resultados do DPF com o **shapefile municipal do IBGE** (via repositório público [tbrugz/geodata-br](https://github.com/tbrugz/geodata-br));  
-- Realiza o *merge* automático entre nomes de municípios e o mapa;  
-- Gera um **mapa de calor (heatmap)** com gradação em verde (cmap = `YlGn`), proporcional ao índice DPF;  
+- Integra os resultados do DPF com o **shapefile municipal do IBGE** (via repositório público [tbrugz/geodata-br](https://github.com/tbrugz/geodata-br));
+- Realiza o *merge* automático entre nomes de municípios e o mapa;
+- Gera um **mapa de calor (heatmap)** com gradação em verde (cmap = `YlGn`), proporcional ao índice DPF;
 - Exporta automaticamente a imagem final como `data/heatmap_dpf.png`.
 
 O resultado visual evidencia os polos agrícolas de maior demanda de fertilizantes, concentrados principalmente no **Centro-Oeste (MT, GO)** e **MATOPIBA (BA, PI, MA, TO)**.
@@ -64,7 +64,7 @@ O resultado visual evidencia os polos agrícolas de maior demanda de fertilizant
 <p style={{textAlign: 'center'}}>Figura 1 - Heatmap dos polos agrícolas com maior demanda de fertilizantes</p>
 <div style={{margin: 25}}>
     <div style={{textAlign: 'center'}}>
-        <img src={require("../../../static/img/heatmap_dpf.png").default} style={{width: 800}} alt="Heatmap de demanda" />
+        <img src={require("../../static/img/heatmap_dpf.png").default} style={{width: 800}} alt="Heatmap de demanda" />
         <br />
     </div>
 </div>
@@ -95,16 +95,16 @@ Os dez municípios com maior DPF foram:
 
 Os resultados confirmam o padrão esperado de concentração da demanda de fertilizantes nas regiões de **produção intensiva de grãos**:
 
-- **Sorriso (MT)** e **Rio Verde (GO)** surgem como polos de maior demanda, refletindo suas extensas áreas de soja e milho e sua infraestrutura consolidada de escoamento.  
-- O **MATOPIBA** apresenta forte crescimento, destacando-se como nova fronteira agrícola e potencial área de expansão de mercado.  
+- **Sorriso (MT)** e **Rio Verde (GO)** surgem como polos de maior demanda, refletindo suas extensas áreas de soja e milho e sua infraestrutura consolidada de escoamento.
+- O **MATOPIBA** apresenta forte crescimento, destacando-se como nova fronteira agrícola e potencial área de expansão de mercado.
 - No eixo **Triângulo Mineiro – Oeste da Bahia**, há alta correlação entre produção agrícola e proximidade das jazidas de **fosfato e dunito da Agrominas**, o que reforça a viabilidade para implantação da planta de termofosfato.
 
 ---
 
 ## Próximos Passos
 
-- Cruzar o mapa DPF com variáveis de **energia e logística** (distância às jazidas e subestações elétricas) na Sprint 2;  
-- Aplicar o modelo de **pontuação multicritério (Score_i)** com base nas variáveis e pesos definidos no documento de critérios;  
+- Cruzar o mapa DPF com variáveis de **energia e logística** (distância às jazidas e subestações elétricas) na Sprint 2;
+- Aplicar o modelo de **pontuação multicritério (Score_i)** com base nas variáveis e pesos definidos no documento de critérios;
 - Refinar a análise espacial com shapefiles estaduais de infraestrutura e rede rodoviária (DNIT).
 
 ---
