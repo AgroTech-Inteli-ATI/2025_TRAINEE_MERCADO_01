@@ -50,3 +50,26 @@ resultado.to_csv("data/resultado_polos_agricolas.csv", index=False, encoding="ut
 
 print("\nop 10 municípios:")
 print(resultado[["Municipio", "DPF", "Classificacao"]].head(10))
+
+# análise exploratória
+print("\nEstatísticas básicas por cultura (hectares plantados):\n")
+stats = df[["Soja", "Milho", "Cana", "Cafe"]].describe().round(2)
+print(stats.loc[["mean", "max"]])
+
+# salva estatísticas em CSV
+stats.to_csv("data/estatisticas_culturas.csv", encoding="utf-8-sig")
+
+import matplotlib.pyplot as plt
+
+# calcula médias por cultura
+media_culturas = df[["Soja", "Milho", "Cana", "Cafe"]].mean().sort_values(ascending=False)
+
+plt.figure(figsize=(8, 5))
+media_culturas.plot(kind="bar", color=["#74c476", "#a1d99b", "#31a354", "#006d2c"])
+plt.title("Média de Área Plantada por Cultura (ha)")
+plt.ylabel("Hectares (média por município)")
+plt.xlabel("Cultura")
+plt.grid(axis="y", alpha=0.3)
+plt.tight_layout()
+plt.savefig("data/media_culturas.png")
+plt.close()

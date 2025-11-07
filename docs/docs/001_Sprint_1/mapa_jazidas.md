@@ -1,9 +1,8 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 slug: /Sprint-1/mapeamento-jazidas
-description: "Identificação dos principais polos agrícolas consumidores"
----
-
+description: "Mapeamento das jazidas próprias da Agrominas e potenciais áreas de transporte"
+--- 
 
 # Mapeamento das Jazidas Próprias
 ## Objetivo
