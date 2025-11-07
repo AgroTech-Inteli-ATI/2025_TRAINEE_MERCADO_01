@@ -14,7 +14,7 @@ O objetivo é identificar a localização ideal para a fábrica de Termofosfato 
 
 A planta demanda uma infraestrutura energética robusta, com as seguintes estimativas anuais para a produção de 200.000 t/ano:
 *   **Rota Elétrica:** Consumo de ~180 GWh/ano, exigindo uma **Subestação Elétrica (SE) dedicada com capacidade ≥ 30 MVA**.
-*   **Rota Gás Natural:** Consumo de ~200 milhões Nm³/ano. Esta rota é economicamente mais competitiva (~R$ 50 milhões/ano) do que a rota elétrica (~R$ 90 milhões/ano).
+*   **Rota Gás Natural:** Consumo de ~200 milhões Nm³/ano. Esta rota é economicamente mais competitiva (~R$ 50 milhões/ano) do que a rota elétrica (~R$ 90 milhões/ano). - **Embora eu estudei sobre isso, isso nao sera viavel caso nao se posicione em uma cidade com gasoduto disponivel, oq mata o potenciais economias com o frete. mesma coisa o contrario mandar caminhoes de gas para o local**
 
 #### Contexto Regulatário e Mercado Livre de Gás Natural
 
@@ -96,23 +96,18 @@ O critério de classificação final é a **viabilidade e o custo da infraestrut
 
 1.  **Acesso ao Gás Natural:** A rota a gás natural é a mais competitiva economicamente. A proximidade do vetor de expansão da Gasmig (Passos) é um diferencial estratégico, tornando as localidades com menor distância de Passos mais atrativas.
 2.  **Capacidade de Carga Elétrica:** A confirmação de capacidade disponível (MVA) nas subestações locais acima do requisito de 30 MVA é essencial. Localidades como **Itaú de Minas** e **Passos** possuem subestações de maior porte ou estão em eixos de reforço de rede.
+3. **Distância**.
 
 ## Resultados
 
-O ranking a seguir reflete a ponderação da infraestrutura energética (eletricidade e gás natural) com a logística da matéria-prima (proximidade de Pratápolis).
-
-| Posição | Localidade (Município) | Fator Crítico (Energia) | Vantagem Energética |
+| Posição | Localidade (Município) | Fator Crítico (Energia) | Vantagem Energética Revisada |
 | :--- | :--- | :--- | :--- |
-| **1** | **Itaú de Minas (MG)** | Subestação local e proximidade de Passos (Gás). | Proximidade da SE e do polo de gás (Passos). |
-| **2** | **Pratápolis (MG) - Zona Industrial** | Necessidade de confirmação da capacidade final (≥ 30 MVA). | Reforço recente na subestação local. |
-| **3** | **Passos (MG) - Eixo Industrial Sul** | Distância da mina (aprox. 60 km) aumenta custo logístico. | **Polo de gás natural (Gasmig)** e maior capacidade de SEs regionais. |
-| **4** | **Cássia (MG) - Eixo Rodoviário** | Distância da mina (aprox. 30-40 km). | Acesso à infraestrutura elétrica (SE e UFV) e proximidade de Passos. |
-| **5** | **Fortaleza de Minas (MG)** | Infraestrutura energética menos robusta. | Proximidade da mina de rocha magnesiana. |
-| **6** | **São Sebastião do Paraíso (MG)** | Maior distância do gasoduto de Passos. | Polo regional maior, potencial de mão de obra. |
-| **7** | **Itaú de Minas (MG) - Eixo MG-344** | Similar ao ponto 1, mas em área menos consolidada. | Acesso direto à MG-344. |
-| **8** | **Pratápolis (MG) - Área Rural (próxima à mina)** | Necessidade de construção de ramal de acesso e subestação dedicada. | Máxima proximidade da matéria-prima. |
-| **9** | **Cássia (MG) - Área Rural (próxima à BR-265)** | Distância da mina e necessidade de ramal. | Potencial de conexão à rede de alta tensão. |
-| **10** | **Passos (MG) - Eixo Rodoviário Norte** | Distância da mina (aprox. 60 km). | Proximidade do gás natural. |
+| **1** | **Pratápolis (MG) - Zona Industrial** | Necessidade de confirmação da capacidade final (≥ 30 MVA). | Reforço recente na subestação local. Máxima proximidade da matéria-prima. |
+| **2** | **Itaú de Minas (MG)** | **Capacidade da SE local (≥ 30 MVA) a ser confirmada.** | Proximidade da SE e da matéria-prima. |
+| **3** | **Passos (MG) - Eixo Industrial Sul** | Distância da mina (aprox. 60 km) aumenta custo logístico. | **Infraestrutura de transmissão de 138 kV (125 MVA) na região.** Forte incentivo fiscal (ver documento separado). |
+| **4** | **Cássia (MG) - Eixo Rodoviário** | Distância da mina (aprox. 30-40 km). | Acesso à infraestrutura elétrica (SE e UFV) e proximidade da linha de transmissão de 138 kV. |
+
+**Recomendação:** A decisão final deve ser baseada na **confirmação da capacidade de 30 MVA** nas subestações de Pratápolis e Itaú de Minas. Caso a capacidade não seja confirmada, a opção de Passos, apesar do custo logístico, torna-se mais atrativa devido à infraestrutura de transmissão regional e ao forte apoio governamental (ver documento separado).
 
 ## Referências
 
