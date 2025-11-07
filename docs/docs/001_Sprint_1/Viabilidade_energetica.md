@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-slug: /Sprint-1/Subestacoes_Energia
+slug: /Sprint-1/viabilidade-energética
 description: "Viabilidade energética tanto por energia elétrica quanto por gás natural"
 ---
 
