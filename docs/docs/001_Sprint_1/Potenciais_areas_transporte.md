@@ -31,6 +31,7 @@ Documentar, de forma inicial, as **potenciais áreas de transporte** ligadas às
 - **Tiros (~250 km, MG-176/BR-354):** no limite do raio; uso tático para volumes menores/ajustes.
 - **Distribuição final:** eixos **BR-265** e **MG-344** conectam os principais mercados regionais indicados.
 
+
 ## Referências
 - **Agrominas.** *Estudo de Localização – Logística e Raio de Suprimento (Pratápolis).* Documento interno, 2025.
 - **Os autores (2025).** Documentação inicial das potenciais áreas de transporte.
