@@ -6,6 +6,7 @@ import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
+from matplotlib.colors import to_rgba
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -293,15 +294,25 @@ def main():
     fig, ax = plt.subplots(figsize=(12, 10))
     ax.set_aspect("equal")
 
-    # Regioes com cores distintas + legenda
+    # Regioes com paleta em tons de cinza (do branco ao cinza escuro)
     unique_regs = list(gdf_regioes["REGIAO_NOME"].astype(str).unique())
-    cmap = plt.get_cmap("tab10" if len(unique_regs) <= 10 else ("tab20" if len(unique_regs) <= 20 else "hsv"))
-    reg_colors = {reg: cmap(i % cmap.N) for i, reg in enumerate(unique_regs)}
+    n_regs = len(unique_regs)
+
+    def _gray_shade(idx: int) -> tuple:
+        # idx: 0..n_regs-1 -> retorna tom de cinza entre quase branco (0.95) e escuro (0.30)
+        if n_regs <= 1:
+            v = 0.95
+        else:
+            v = 0.95 - (0.65 * idx / (n_regs - 1))
+        v = max(0.0, min(1.0, v))
+        return (v, v, v, 1.0)
+
+    reg_colors = {reg: _gray_shade(i) for i, reg in enumerate(unique_regs)}
     gdf_regioes = gdf_regioes.copy()
     gdf_regioes["_color"] = gdf_regioes["REGIAO_NOME"].map(reg_colors)
-    gdf_regioes.plot(ax=ax, color=gdf_regioes["_color"], edgecolor="#aaaaaa", linewidth=0.6)
+    gdf_regioes.plot(ax=ax, color=gdf_regioes["_color"], edgecolor="#888888", linewidth=0.6, alpha=0.95)
 
-    handles = [Patch(facecolor=reg_colors[r], edgecolor="#777777", label=r) for r in unique_regs]
+    handles = [Patch(facecolor=reg_colors[r], edgecolor="#666666", label=r) for r in unique_regs]
     reg_legend = ax.legend(handles=handles, title="Regioes", loc="upper right", bbox_to_anchor=(0.99, 0.99), frameon=False)
     ax.add_artist(reg_legend)
 
@@ -334,10 +345,10 @@ def main():
                 except Exception:
                     lw_float = 0.8
                 gpd.GeoSeries([geom], crs=gdf_lines.crs).plot(
-                    ax=ax, color="#9e5959", linewidth=lw_float, alpha=0.7, zorder=1
+                    ax=ax, color="#ff0000", linewidth=lw_float, alpha=0.7, zorder=1
                 )
         else:
-            gdf_lines.plot(ax=ax, color="#9e5959", linewidth=0.8, alpha=0.7, zorder=1)
+            gdf_lines.plot(ax=ax, color="#ff0000", linewidth=0.8, alpha=0.7, zorder=1)
 
     # Pontos (subestacoes) com categorias de tensao
     class_order = ["< 69 kV", "69-138 kV", "138-230 kV", "230-440 kV", ">= 440 kV"]

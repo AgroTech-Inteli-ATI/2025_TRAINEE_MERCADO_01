@@ -1,1 +1,0 @@
-ata/linhas_transmissao.geo
