@@ -25,3 +25,15 @@ Registrar, de forma inicial, as **potenciais áreas de transporte** associadas �
 - **Tiros (SiO₂ ~250 km via MG-176/BR-354)** fica no **limite do raio**; uso tático para volumes menores/ajustes de blend.
 - **Santa Helena (K, eixo Araxá)** aparece como **opção complementar** no quadrante norte, reforçando convergência logística para o sul/centro-oeste de MG.
 - Próximo passo: desenhar **corredores gate→via primária** e marcar **pontos críticos** (pontes, rampas, curvas) para cada origem.
+
+## Referências
+- Frontera Minerals - https://fronteraminerals.com.br/
+
+- Agrominas Fertilizantes - https://agrominasfertilizantes.com/
+
+- quivo Dunito Agrominas.
+
+- Google Earth Pro - Google LLC.
+
+## Ferramentas utilizadas (não-fontes)
+- Google Gemini — Apoio redacional e checagem    de ideias; **não** usado como fonte primária.
