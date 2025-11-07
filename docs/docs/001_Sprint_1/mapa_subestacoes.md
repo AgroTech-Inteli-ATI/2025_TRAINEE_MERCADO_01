@@ -16,6 +16,10 @@ A planta demanda uma infraestrutura energética robusta, com as seguintes estima
 *   **Rota Elétrica:** Consumo de ~180 GWh/ano, exigindo uma **Subestação Elétrica (SE) dedicada com capacidade ≥ 30 MVA**.
 *   **Rota Gás Natural:** Consumo de ~200 milhões Nm³/ano. Esta rota é economicamente mais competitiva (~R$ 50 milhões/ano) do que a rota elétrica (~R$ 90 milhões/ano).
 
+#### Contexto Regulatário e Mercado Livre de Gás Natural
+
+A implementação da Nova Lei do Gás (Lei nº 14.134/2021) fomenta a abertura do mercado, permitindo que grandes consumidores industriais negociem o fornecimento diretamente com produtores e comercializadores. Esse novo arranjo tende a reduzir custos de suprimento e aumentar a previsibilidade contratual, tornando a rota a gás natural ainda mais atrativa para projetos de alto consumo térmico, como o da Agrominas.
+
 ## Metodologia
 
 A metodologia se concentra na análise da infraestrutura de energia elétrica e gás natural na microrregião de Pratápolis, integrando dados de capacidade e disponibilidade.
@@ -29,9 +33,7 @@ A metodologia se concentra na análise da infraestrutura de energia elétrica e 
 
 O artigo **"Harmonized and Open Energy Dataset for Modeling a Highly Renewable Brazilian Power System"** valida a importância de utilizar **dados abertos e espacialmente explícitos** para a modelagem de sistemas de energia. Para o projeto Agrominas, isso reforça a necessidade de analisar a **capacidade instalada (MVA)** e a **disponibilidade** das subestações locais como o principal critério para identificar pontos de conexão viáveis para a demanda de 30 MVA.
 
-## Visualizações (espaço para figuras)
-
-A seguir há espaços reservados para inserir figuras que complementam a análise energética. Substitua os caminhos pelas imagens geradas ou obtidas.
+## Visualizações
 
 ### Capacidade de Transferência de Energia entre Regiões
 
