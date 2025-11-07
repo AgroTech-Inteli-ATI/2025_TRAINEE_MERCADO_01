@@ -55,11 +55,15 @@ A identificação dos polos agrícolas foi realizada em três etapas principais:
 Antes da geração do mapa, foi realizada uma **análise exploratória dos dados de produção agrícola** para verificar a representatividade das principais culturas consideradas no índice DPF.  
 O **gráfico de barras** abaixo apresenta a **média de área plantada por cultura** nos municípios brasileiros analisados:
 
-<div style="text-align:center">
-  <p style="margin-bottom:8px;"><strong>Figura 1 - Média de área plantada por cultura (ha)</strong></p>
-  <img src="../../static/img/media_culturas.png" style="display:block; margin:0 auto; width:700px; max-width:100%; height:auto;" />
-  <p style="text-align:center; margin-top:8px; font-size:0.9em;">Fonte: Os autores (2025)</p>
+<p style={{textAlign: 'center'}}>Figura 1 - Média de área plantada por cultura (ha)</p>
+
+<div style={{margin: 25}}>
+    <div style={{textAlign: 'center'}}>
+        <img src={require("../../static/img/media_culturas.png").default} style={{width: 800}} alt="Mapa das jazidas" />
+        <br />
+    </div>
 </div>
+<p style={{textAlign: 'center'}}>Fonte: Os autores (2025)</p>
 
 Essa visualização evidencia que as culturas de **soja e milho** concentram a maior parte da área cultivada nacionalmente, seguidas por **cana-de-açúcar** e **café**.  
 Tal comportamento **reforça a coerência dos pesos atribuídos** na fórmula do DPF - 0,45 para soja e 0,25 para milho, uma vez que essas culturas são as **principais consumidoras de fertilizantes** no país.
