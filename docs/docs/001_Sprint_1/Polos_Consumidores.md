@@ -64,7 +64,7 @@ O resultado visual evidencia os polos agrícolas de maior demanda de fertilizant
 <p style={{textAlign: 'center'}}>Figura 1 - Heatmap dos polos agrícolas com maior demanda de fertilizantes</p>
 <div style={{margin: 25}}>
     <div style={{textAlign: 'center'}}>
-        <img src={require("../../../static/img/heatmap_dpf.png").default} style={{width: 800}} alt="Heatmap de demanda" />
+        <img src={require("../../static/img/heatmap_dpf.png").default} style={{width: 800}} alt="Heatmap de demanda" />
         <br />
     </div>
 </div>

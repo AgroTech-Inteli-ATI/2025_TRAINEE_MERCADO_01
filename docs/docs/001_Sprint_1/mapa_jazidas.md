@@ -13,7 +13,7 @@ Registrar, de forma inicial, as **potenciais Ã¡reas de transporte** associadas Ã
 
 <div style={{margin: 25}}>
     <div style={{textAlign: 'center'}}>
-        <img src={require("../../../static/img/mapa_jazida.jpeg").default} style={{width: 800}} alt="Mapa das jazidas" />
+        <img src={require("../../static/img/mapa_jazida.jpeg").default} style={{width: 800}} alt="Mapa das jazidas" />
         <br />
     </div>
 </div>
