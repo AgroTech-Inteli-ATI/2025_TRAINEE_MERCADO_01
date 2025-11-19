@@ -232,4 +232,4 @@ Paraguai e Mato Grosso se destacam como as localizações mais vantajosas do pon
     *Estudos técnicos sobre consumo energético em fertilizantes e processos térmicos.*
     https://www.osti.gov/
 
-12. Lista Completa de URLs – Pesquisa sobre Energia Industrial. Documento auxiliar  utilizado na validação das fontes. Em [URLs — Energia (Sprint 2)](../../extra/Urls.md)
+12. Lista Completa de URLs – Pesquisa sobre Energia Industrial. Documento auxiliar  utilizado na validação das fontes. Em [URLs — Energia (Sprint 2)](../extra/Urls.md)
