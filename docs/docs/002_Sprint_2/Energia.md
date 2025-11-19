@@ -22,9 +22,9 @@ Principais pontos:
 
 ## 1. Consumo Energético da Planta – Cenários de Produção
 
-A produção de Termofosfato Magnesiano, realizada por fusão térmica de fosfatos com magnésio em forno elétrico, demanda alto consumo de energia. Inicialmente, o consumo específico é de **~1,20 MWh/t**, reduzindo para **~0,90 – 0,95 MWh/t** com a estabilização do processo, o que representa uma queda de **20 – 25%** devido a melhorias operacionais e maior aproveitamento térmico. Fonte: [Relatório](../../extra/ConsumoEnergia.md)
+A produção de Termofosfato Magnesiano, realizada por fusão térmica de fosfatos com magnésio em forno elétrico, demanda alto consumo de energia. Inicialmente, o consumo específico é de **~1,20 MWh/t**, reduzindo para **~0,90 – 0,95 MWh/t** com a estabilização do processo, o que representa uma queda de **20 – 25%** devido a melhorias operacionais e maior aproveitamento térmico. Fonte: [Relatório](../extra/ConsumoEnergia.md)
 
-Adotando um consumo médio de **~1,0 MWh/t** com base no [Relatório](../../extra/ConsumoEnergia.md), estimam-se os seguintes valores anuais para diferentes escalas de produção:
+Adotando um consumo médio de **~1,0 MWh/t** com base no [Relatório](../extra/ConsumoEnergia.md), estimam-se os seguintes valores anuais para diferentes escalas de produção:
 
 | Produção (t/ano) | Consumo (MWh/ano) | Potência Média (MW) |
 |------------------|-------------------|----------------------|
@@ -211,7 +211,7 @@ Paraguai e Mato Grosso se destacam como as localizações mais vantajosas do pon
    https://www.ande.gov.py/docs/tarifas/Pliego%20de%20Tarifas%20Nro%2021%20-%20Version%20Actualizada%2027-11-2024.pdf
 
 5. Ministério de Minas e Energia (MME) / Empresa de Pesquisa Energética (EPE).
-   [*PDE 2034 – Plano Decenal de Expansão de Energia*](../../extra/PDE2034.pdf)
+   [*PDE 2034 – Plano Decenal de Expansão de Energia*](../extra/PDE2034.pdf)
    (Caderno de Transmissão: limites de intercâmbio, reforços NE–SE–S, capacidade de escoamento.)
 
 6. ONS – Operador Nacional do Sistema Elétrico. Mapas do SIN.
