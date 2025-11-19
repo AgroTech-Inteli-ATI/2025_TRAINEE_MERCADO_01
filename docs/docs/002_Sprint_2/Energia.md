@@ -23,6 +23,32 @@ Por exemplo:
 - Custo de demanda (R$/kW) → convertido para R$/kWh assumindo uso contínuo da demanda.
 ---
 
+## 1. Consumo Energético da Planta – Cenários de Produção
+
+A produção de Termofosfato Magnesiano, realizada por fusão térmica de fosfatos com magnésio em forno elétrico, demanda alto consumo de energia. Inicialmente, o consumo específico é de **~1,20 MWh/t**, reduzindo para **~0,90 – 0,95 MWh/t** com a estabilização do processo, o que representa uma queda de **20 – 25%** devido a melhorias operacionais e maior aproveitamento térmico. Fonte: [Relatório](../../extra/ConsumoEnergia.md)
+
+Adotando um consumo médio de **~1,0 MWh/t**, estimam-se os seguintes valores anuais para diferentes escalas de produção:
+
+| Produção (t/ano) | Consumo (MWh/ano) | Potência Média (MW) |
+|------------------|-------------------|----------------------|
+| 50.000           | ≈ 50.000          | ≈ 5,7                |
+| 100.000          | ≈ 100.000         | ≈ 11,4               |
+| 200.000          | ≈ 200.000         | ≈ 22,8               |
+
+> **Nota:** 1 MW médio = 8.760 MWh/ano.
+
+Considerando variações operacionais, os intervalos de consumo são:
+
+- **50 mil t/ano:** 45–60 GWh/ano (5 – 7 MW médios)
+- **100 mil t/ano:** 90-129 GWh/ano (10,3 – 14,7 MW médios)
+- **200 mil t/ano:** 180–240 GWh/ano (20 – 28 MW médios)
+
+Essas estimativas padronizadas facilitam o planejamento energético e a comparação entre cenários de produção.
+
+---
+
+Se quiser, posso adaptar esse conteúdo para apresentação ou incluir projeções de custo.
+
 
 ## Referências
 

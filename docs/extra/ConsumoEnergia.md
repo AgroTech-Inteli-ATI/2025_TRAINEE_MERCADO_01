@@ -61,9 +61,7 @@ Assim obtém-se:
 
 Fechando a faixa consolidada:
 
-\[
-\boxed{0,9–1,2\ \text{MWh/t}}
-\]
+0,9–1,2 MWh/t
 
 ---
 
