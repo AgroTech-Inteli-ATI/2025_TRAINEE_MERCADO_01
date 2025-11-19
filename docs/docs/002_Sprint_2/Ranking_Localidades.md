@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 slug: /Sprint-2/ranking-localidades
 description: "Modelo comparativo e ranking preliminar das localidades"
 ---

@@ -1,87 +1,44 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 slug: /Sprint-2/custos-consolidados
 description: "Planilha e documentação dos custos consolidados da Sprint 2"
 ---
 
-# 3.1 Custos Consolidados – Sprint 2
+# Planilha de Custos Consolidados - Sprint 2
 
-## 1. Objetivo
-> Explicar o propósito desta seção: consolidar custos de matéria-prima, energia e logística como base para o ranking de localidades.
+## Objetivo
+Esta seção detalha a composição completa dos custos associados à operação industrial da planta de termofosfato, incorporando os três grupos principais de custos operacionais diretos:
 
----
+- Custo da matéria-prima entregue
+- Custo de energia elétrica por região candidata
+- Custo logístico de distribuição para acesso ao mercado agrícola
 
-## 2. Metodologia
-> Descrever a lógica dos cálculos (sensibilidade de frete, normalização, parâmetros, datas e fontes).
-
----
-
-## 3. Link para a Planilha Oficial
->  Inserir aqui o link para o Google Sheets contendo os cálculos consolidados.  
-**Exemplo:**  
-`https://docs.google.com/spreadsheets/d/XXXXXXXXXXXXX/edit?usp=sharing`
+A metodologia adotada reflete as correções e orientações da Sprint Review 1, conforme registrado no arquivo
+`Considerações_Sprint1.md`.
 
 ---
 
-## 4. Custo de Matéria-Prima Entregue
+## Custo da Matéria-Prima Entregue (MP + Frete)
 
-### 4.1 Distâncias Utilizadas
->  Inserir tabela das distâncias (Pratápolis, Fortaleza de Minas, Tiros).
+A análise considera as três matérias-primas essenciais:
+1. Fosfato (67% participação no termo final)
+2. Dunito (33% participação)
+3. Sílica (quantidade auxiliar, baixo custo)
 
----
+### Metodologia
 
-### 4.2 Sensibilidade de Frete  
->  Inserir tabela com os três cenários (otimista, base, pessimista).  
-A tabela deve conter colunas como:
-- Insumo  
-- Distância (km)  
-- Frete Otimista (0,25 R$/t·km)  
-- Frete Base (0,30 R$/t·km)  
-- Frete Pessimista (0,40 R$/t·km)
+O custo total da MP entregue é calculado como:
 
----
+``VALOR_TOTAL_MP_ENTREGUE = PREÇO_MP_BASE + (DISTÂNCIA × TARIFA_R$/t.km)``
 
-### 4.3 Custo por Tonelada de Produto Final
->  Inserir tabela consolidada mostrando o custo final (R$/t de termofosfato) para cada cenário:
-- Otimista  
-- Base  
-- Pessimista  
+Onde:
 
----
+- PREÇO_MP_BASE:
+  - Fosfato: R$ 900/t
+  - Dunito: R$ 300/t
+   - Sílica: R$ 150/t
 
-### 4.4 Tabela Consolidada (para exibição direta no documento)
->   Inserir aqui uma versão resumida da tabela final (em markdown), para visualização dentro do próprio repositório. Essa tabela é apenas uma **visualização**, o cálculo oficial permanece no Google Sheets.
+- Tarifa de frete rodoviário:
+  - R$ 0,03 / t . km (valor conservador baseado em tabelas ANTT e benchmarking interno)
 
-**Exemplo de estrutura (substituir pelos valores finais):**
-
-| Cenário | Custo Total (R$/t) | Variação |
-|--------|---------------------|----------|
-| Otimista | XX,XX | -YY% |
-| Base | XX,XX | — |
-| Pessimista | XX,XX | +ZZ% |
-
----
-
-## 5. Custo Energético
->  Inserir os seguintes itens:
-- Tarifas (R$/MWh) para cada localidade candidata.  
-- Disponibilidade energética (MVA).  
-- Diferença entre rota elétrica e rota gás natural.  
-- Impacto financeiro anual aproximado.
-
----
-
-## 6. Custo Logístico de Acesso ao Mercado
->  Criar estimativa de custo de distribuição:
-- Polos DPF categoria A e B  
-- Frete médio por km  
-- Comparação por região
-
----
-
-## 7. Conclusão Executiva
->  Resumir:
-- principais achados  
-- impactos logísticos  
-- como isso afeta o ranking  
-- ligação com o preço final por tonelada
+As distâncias foram obtidas via análise geográfica e rotas rodoviárias (Google Maps).

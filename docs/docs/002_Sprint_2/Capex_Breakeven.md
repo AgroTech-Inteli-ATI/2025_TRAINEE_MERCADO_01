@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 slug: /Sprint-2/capex-breakeven
 description: "Estimativa inicial de CAPEX e Break-even"
 ---
