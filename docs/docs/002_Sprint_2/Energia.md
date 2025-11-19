@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 slug: /Sprint-2/Revisão-Energia
 description: "Mudança na análize de preços de energia no Brasil e Paraguai incluindo o PDE 2034"
 ---

@@ -1,3 +1,9 @@
+---
+sidebar_position: 1
+slug: /Sprint-2/Urls-list
+description: "lista de alguns links q foram usados para o projeto"
+---
+
 # Lista Completa de URLs - Pesquisa sobre Energia Industrial
 
 ## 1. Tarifas Industriais - Brasil (ANEEL e Distribuidoras)

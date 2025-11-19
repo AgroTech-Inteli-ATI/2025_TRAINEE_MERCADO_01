@@ -1,3 +1,9 @@
+---
+sidebar_position: 1
+slug: /Sprint-2/Consumo-Energia
+description: "estudo que mostra o tanto que uma planta de termofosfato consome em energia"
+---
+
 # Estimativa de Consumo Específico de Energia no Processo de Produção de Termofosfato Magnesiano
 ## Faixa Técnica Referenciada: **0,9–1,2 MWh por tonelada de produto**
 
