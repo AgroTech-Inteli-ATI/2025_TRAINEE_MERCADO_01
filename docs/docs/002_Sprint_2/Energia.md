@@ -160,6 +160,42 @@ Com base nos custos atuais e nas projeções do PDE 2034 (transmissão, demanda 
 > **Nota:** Outras regiões como Sergipe, Pará e Maranhão foram avaliadas, mas não superaram os cinco principais em custo e viabilidade energética.
 
 ---
+
+## 5. Recomendações Finais
+
+Com base na análise integrada de custo energético, robustez do suprimento, projeções do PDE 2034 e riscos climáticos, as melhores opções estratégicas para a instalação da planta de termofosfato magnesiano são:
+
+### 1ª Opção – Paraguai (região central, ligada a Itaipu)
+
+- **Custo estimado:** ~R$150/MW·h ou inferior
+- **Destaques:** Energia hidrelétrica abundante e estável, excedente de Itaipu, incentivos à indústria eletrointensiva.
+- **Recomendações:** Negociar fornecimento firme com a ANDE ou cogitar participação em geração dedicada. Avaliar logística de exportação para o Brasil e aspectos fiscais. A expansão futura da interligação Brasil–Paraguai prevista no PDE pode mitigar riscos de escoamento.
+
+### 2ª Opção – Mato Grosso (Brasil)
+
+- **Custo estimado:** ~R$107/MW·h (Energisa MT)
+- **Destaques:** Localização central, proximidade de consumidores agrícolas e fornecedores de rocha fosfática, inserção no SIN com múltiplas rotas de suprimento.
+- **Recomendações:** Iniciar tratativas para conexão em alta tensão e contratação via mercado livre. Buscar contratos com fontes incentivadas (PCHs, biomassa) para reduzir encargos adicionais.
+
+### 3ª Opção – Interior de MG/RJ (Energisa Minas Rio)
+
+- **Custo estimado:** ~R$106/MW·h
+- **Destaques:** Proximidade de jazidas minerais e centros consumidores, rede elétrica robusta, acesso ao mercado livre.
+- **Recomendações:** Confirmar manutenção da tarifa competitiva no médio prazo. Avaliar conexão à rede de transmissão da CEMIG e suprimento via fontes locais.
+
+### Outras Regiões
+
+- **Amapá:** Apesar do menor custo nominal (~R$75/MW·h), não é recomendada no momento devido à fragilidade do suprimento e dependência de subsídios. Só viável com plano robusto de segurança energética.
+- **Ceará e Rio Grande do Sul:** Menções estratégicas para médio/longo prazo. Investimentos em renováveis e transmissão podem tornar essas regiões mais competitivas após 2030, especialmente para expansões ou plantas satélites.
+
+### Conclusão
+
+Paraguai e Mato Grosso se destacam como as localizações mais vantajosas do ponto de vista energético. O Paraguai oferece a menor tarifa, enquanto o MT combina custo competitivo com maior integração ao mercado brasileiro. A escolha final deve considerar também fatores logísticos, regulatórios e operacionais, mas sob a ótica elétrica e estratégica até 2034, essas opções posicionam a Agrominas em regiões com energia abundante, barata e sustentada por tendências favoráveis de expansão.
+
+> **Fontes:** ANEEL (tarifas 2024–2025), ANDE (pliego tarifario 2024), PDE 2034 – Caderno de Transmissão (MME/EPE, 2024).
+
+---
+
 ## Referências
 
 1. Agência Nacional de Energia Elétrica – ANEEL. Portal de Tarifas e Resoluções Homologatórias (2024–2025).
