@@ -18,16 +18,13 @@ Principais pontos:
 - **Ranking e recomendações** baseados em cálculos detalhados e riscos regionais.
 - Referências oficiais (ANEEL, ANDE, PDE 2034) documentam os pressupostos.
 
-Por exemplo:
-- **1 MW médio por ano = 8.760 MWh/ano**
-- Custo de demanda (R$/kW) → convertido para R$/kWh assumindo uso contínuo da demanda.
 ---
 
 ## 1. Consumo Energético da Planta – Cenários de Produção
 
 A produção de Termofosfato Magnesiano, realizada por fusão térmica de fosfatos com magnésio em forno elétrico, demanda alto consumo de energia. Inicialmente, o consumo específico é de **~1,20 MWh/t**, reduzindo para **~0,90 – 0,95 MWh/t** com a estabilização do processo, o que representa uma queda de **20 – 25%** devido a melhorias operacionais e maior aproveitamento térmico. Fonte: [Relatório](../../extra/ConsumoEnergia.md)
 
-Adotando um consumo médio de **~1,0 MWh/t**, estimam-se os seguintes valores anuais para diferentes escalas de produção:
+Adotando um consumo médio de **~1,0 MWh/t** com base no [Relatório](../../extra/ConsumoEnergia.md), estimam-se os seguintes valores anuais para diferentes escalas de produção:
 
 | Produção (t/ano) | Consumo (MWh/ano) | Potência Média (MW) |
 |------------------|-------------------|----------------------|
@@ -43,13 +40,126 @@ Considerando variações operacionais, os intervalos de consumo são:
 - **100 mil t/ano:** 90-129 GWh/ano (10,3 – 14,7 MW médios)
 - **200 mil t/ano:** 180–240 GWh/ano (20 – 28 MW médios)
 
-Essas estimativas padronizadas facilitam o planejamento energético e a comparação entre cenários de produção.
+---
+
+## 2. Custos de Energia Elétrica por Região – Brasil vs. Paraguai
+
+Para avaliar a competitividade energética, foram levantadas as tarifas industriais vigentes em 2025 nas principais regiões do Brasil e no Paraguai, considerando média/alta tensão e fator de carga de 100%. O custo médio por MW·h inclui energia e demanda contratada, permitindo comparabilidade entre localidades.
+
+De forma geral, distribuidoras do Norte/Nordeste com subsídios apresentam os menores custos, enquanto grandes centros urbanos e concessionárias sem incentivos registram valores superiores a **R$500/MW·h**. No Paraguai, a estatal ANDE oferece tarifas significativamente mais baixas (**~R$150/MW·h**), refletindo o amplo uso de hidrelétricas binacionais.
+
+### Comparativo de Tarifas Industriais (R$/MW·h)
+
+| Local / Concessionária         | Tarifa Estimada | Observações |
+|-------------------------------|------------------|-------------|
+| **Paraguai – ANDE**           | ~150             | Tarifa média tensão com demanda ≈R$16/kW·mês; aproveitamento hidrelétrico |
+| **Amapá – Equatorial CEA**    | ~75              | Menor tarifa do Brasil; depende de subsídios pós-apagão |
+| **MG/RJ – Energisa Minas Rio**| ~106             | Tarifa baixa no interior; abaixo da média nacional |
+| **Mato Grosso – Energisa MT** | ~107             | Perfil de concessão e subsídios regionais favorecem o custo |
+| **Sergipe – Energisa SE**     | ~159             | Tarifa moderada no Nordeste |
+| **Sudeste – Enel SP**         | ~270–300         | Custo elevado típico de metrópoles sem subsídios |
+| **CEMIG / Equatorial PA**     | >500             | Maior custo registrado no Brasil em 2025 |
+
+> Valores sem impostos e encargos variáveis. Fontes: ANEEL 2024–2025; ANDE 2024.
+
+### Análise
+
+O Paraguai se destaca como opção competitiva, com custo médio de **~R$150/MW·h**, viabilizado por excedente hidrelétrico. No Brasil, Amapá, Mato Grosso e interior de MG/RJ apresentam tarifas entre **R$75 e R$110/MW·h**, bem abaixo da média nacional. No entanto, fatores como confiabilidade e sustentabilidade devem ser considerados. O Amapá, por exemplo, depende de uma única linha de transmissão e de subsídios temporários.
+
+Regiões como Mato Grosso e MG/RJ oferecem equilíbrio entre custo e segurança energética, por estarem integradas ao SIN. Já centros urbanos do Sudeste, embora com infraestrutura robusta, enfrentam tarifas mais altas devido à ausência de subsídios.
 
 ---
 
-Se quiser, posso adaptar esse conteúdo para apresentação ou incluir projeções de custo.
+Claro! Aqui está o conteúdo reestruturado e condensado como **parte de relatório técnico**, iniciando no item 3, com estilo formal e objetivo, e unidades atualizadas para **MW·h** onde aplicável:
 
+---
 
+## 3. Dados Estratégicos do PDE 2034 – Transmissão, Demanda Futura e Riscos Regionais
+
+O Plano Decenal de Expansão de Energia (PDE 2034), publicado pela EPE/MME, apresenta diretrizes para o desenvolvimento da rede elétrica entre 2025 e 2034. Sua incorporação ao estudo permite antecipar tendências regionais de infraestrutura, custos de transmissão e polos de consumo, contribuindo para decisões de localização mais resilientes.
+
+### Expansão da Capacidade de Transmissão
+
+O PDE projeta reforços significativos na malha do SIN para escoar geração renovável e atender grandes cargas:
+
+- **Nordeste:** acréscimo de 3–4 GW na capacidade de exportação até 2032, somando-se aos ~13 GW médios atuais, elevando o intercâmbio para até 17 GW.
+- **Sul:** ampliação da capacidade de importação em 4 GW até 2036, reforçando o suprimento em cenários hidrológicos críticos.
+- **Tecnologia HVDC:** recomendada para longas distâncias (2.000–3.000 km), reduzindo perdas e viabilizando grandes blocos de energia.
+
+**Implicação:** regiões com excedente renovável (ex.: Nordeste) terão mais infraestrutura para exportar energia; regiões deficitárias (ex.: Sul) ganharão estabilidade, mas continuarão arcando com custos de transporte.
+
+### Projeções de Tarifas de Transmissão (TUST)
+
+A metodologia nodal adotada projeta sinal locacional mais forte até 2034:
+
+- **TUST para geradores (R$/kW·mês):** Nordeste ~9,6; Norte ~8,1; Sudeste ~6,0; Sul ~4,0
+- **TUST para cargas (R$/kW·mês):** Sudeste ~12,8; Sul ~15,5; Nordeste ~8,8
+
+**Implicação:** consumidores no Nordeste terão menor TUST de consumo, mas geradores locais pagarão mais. Localizar a carga próxima à geração reduz encargos de transmissão no longo prazo.
+
+### Polos de Demanda Futura
+
+O PDE identifica novas cargas eletrointensivas que podem alterar o perfil regional:
+
+- **Data Centers:** previsão de 2,5 GW de carga até 2037, com destaque para SP (~1,2 GW), RS (~1,6 GW) e CE (~0,9 GW). SP pode enfrentar saturação tarifária; RS e CE surgem como polos secundários com potencial de expansão.
+- **Hidrogênio Verde:** 9 projetos protocolados somam 35,9 GW de demanda até 2038, concentrados no Nordeste (CE ~26,8 GW; BA ~8,5 GW; PI ~0,6 GW). A região pode passar de exportadora a grande consumidora, exigindo reforços na geração e transmissão.
+
+**Implicação:** a instalação da planta no Nordeste deve considerar a concorrência futura por energia com hubs de H₂ verde, que podem pressionar o custo marginal de suprimento.
+
+### Riscos Climáticos e Estabilidade Regional
+
+Eventos extremos recentes reforçam a importância da diversificação e resiliência:
+
+- **Exemplo Norte:** seca no Rio Madeira em 2023 afetou UHEs Santo Antônio e Jirau, gerando risco de desabastecimento em AC/RO.
+- **Sul/Sudeste:** secas em 2021 exigiram acionamento de térmicas, mitigado por importações do NE/Norte.
+- **Nordeste:** apesar da variabilidade eólica/solar, a diversificação geográfica e complementaridade com outras fontes reduzem riscos.
+
+**Implicação:** regiões isoladas ou com matriz concentrada (ex.: extremo Norte) têm estabilidade menor. No Paraguai, embora confiável, a dependência de hidrelétricas fluviais exige atenção a eventos climáticos. A diversificação de suprimento é recomendada em qualquer cenário.
+
+---
+
+## 4. Atualização do Ranking de Regiões por Custo Energético Competitivo
+
+Com base nos custos atuais e nas projeções do PDE 2034 (transmissão, demanda e riscos), reavaliamos as principais regiões candidatas à instalação da planta de termofosfato magnesiano. A seguir, destacam-se os cinco principais locais, considerando custo energético, infraestrutura e perspectivas futuras:
+
+### 1. Paraguai (ANDE – Região Central)
+
+- **Tarifa estimada:** ~R$150/MW·h
+- **Vantagens:** Energia hidrelétrica abundante e excedente (Itaipu ~14 GW médios), incentivos à indústria eletrointensiva, estabilidade de suprimento.
+- **Desafios:** Limites na interconexão com o Brasil e necessidade de contratos binacionais para garantir fornecimento.
+- **Observação:** Custo extremamente competitivo pode justificar investimentos logísticos adicionais.
+
+### 2. Mato Grosso (Energisa MT)
+
+- **Tarifa estimada:** ~R$107/MW·h
+- **Vantagens:** Localização central, inserção no SIN, múltiplas rotas de suprimento, proximidade de matérias-primas (Goiás/MG), expansão solar prevista.
+- **Desafios:** Verificar disponibilidade de potência firme para grandes cargas.
+- **Observação:** Melhor equilíbrio entre custo, infraestrutura e segurança energética no Brasil.
+
+### 3. Interior de MG/RJ (Energisa Minas Rio)
+
+- **Tarifa estimada:** ~R$106/MW·h
+- **Vantagens:** Proximidade de jazidas minerais e eixo Rio-SP, rede elétrica robusta, renováveis em expansão.
+- **Desafios:** Escala da carga frente à capacidade da concessionária; ausência de subsídios regionais.
+- **Observação:** Alternativa nacional atrativa com boa infraestrutura e custo competitivo.
+
+### 4. Amapá (Equatorial CEA)
+
+- **Tarifa estimada:** ~R$75/MW·h
+- **Vantagens:** Menor custo nominal do Brasil, proximidade da UHE Tucuruí.
+- **Desafios:** Alta vulnerabilidade elétrica, dependência de subsídios e única linha de transmissão.
+- **Observação:** Recomendável apenas com garantias de redundância e contratos blindados.
+
+### 5. Rio Grande do Sul / Ceará
+
+- **Tarifas atuais:** RS ~R$350/MW·h; CE ~R$500/MW·h (varia por área)
+- **Vantagens:** Polos emergentes de demanda (data centers e hidrogênio verde), investimentos em renováveis e transmissão.
+- **Desafios:** Tarifas ainda elevadas; dependência de projetos futuros.
+- **Observação:** Menções honrosas com potencial estratégico de médio prazo, especialmente o CE com sinergia logística e PPAs renováveis.
+
+> **Nota:** Outras regiões como Sergipe, Pará e Maranhão foram avaliadas, mas não superaram os cinco principais em custo e viabilidade energética.
+
+---
 ## Referências
 
 1. Agência Nacional de Energia Elétrica – ANEEL. Portal de Tarifas e Resoluções Homologatórias (2024–2025).
